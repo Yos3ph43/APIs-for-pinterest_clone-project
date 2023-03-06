@@ -1,0 +1,17 @@
+{
+  "name": "node28_capstone_express_orm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^4.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.21",
+    "prisma": "^4.11.0"
+  },
+  "scripts": {
+    "start": "nodemon src/index.js"
+  }
+}
