@@ -6,7 +6,7 @@ const getUser = async (req, res) => {
     let data = await model.user.findMany();
     res.send(data);
   } catch (error) {
-    res.send("Lỗi gì gòi :((");
+    res.send(error.message);
   }
 };
 
