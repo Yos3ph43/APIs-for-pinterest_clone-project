@@ -9,85 +9,49 @@ datasource db {
 
 model user {
   user_id   Int        @id @default(autoincrement())
-  full_name String?    @db.VarChar(255)
   email     String?    @db.VarChar(255)
-  pass_word String?    @db.VarChar(255)
-  like_res  like_res[]
-  order     order[]
-  rate_res  rate_res[]
+  password  String     @db.VarChar(255)
+  full_name String?    @db.VarChar(255)
+  age       Int?
+  avatar    String?    @db.VarChar(255)
+  bookmark  bookmark[]
+  comment   comment[]
+  picture   picture[]
 }
 
-model food {
-  food_id   Int        @id @default(autoincrement())
-  food_name String?    @db.VarChar(255)
-  image     String?    @db.VarChar(255)
-  price     Int?
-  desc      String?    @db.VarChar(255)
-  type_id   Int?
-  food_type food_type? @relation(fields: [type_id], references: [type_id], onDelete: NoAction, onUpdate: NoAction, map: "food_ibfk_1")
-  order     order[]
-  sub_food  sub_food[]
+model bookmark {
+  user_id       Int
+  picture_id    Int
+  bookmark_date DateTime? @db.DateTime(0)
+  user          user      @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "bookmark_ibfk_1")
+  picture       picture   @relation(fields: [picture_id], references: [picture_id], onDelete: NoAction, onUpdate: NoAction, map: "bookmark_ibfk_2")
 
-  @@index([type_id], map: "type_id")
+  @@id([user_id, picture_id])
+  @@index([picture_id], map: "picture_id")
 }
 
-model food_type {
-  type_id   Int     @id @default(autoincrement())
-  type_name String? @db.VarChar(255)
-  food      food[]
+model comment {
+  comment_id   Int       @id @default(autoincrement())
+  user_id      Int
+  picture_id   Int
+  comment_date DateTime? @db.DateTime(0)
+  content      String?   @db.VarChar(255)
+  user         user      @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "comment_ibfk_1")
+  picture      picture   @relation(fields: [picture_id], references: [picture_id], onDelete: NoAction, onUpdate: NoAction, map: "comment_ibfk_2")
+
+  @@index([picture_id], map: "picture_id")
+  @@index([user_id], map: "user_id")
 }
 
-model like_res {
-  user_id    Int
-  res_id     Int
-  date_like  DateTime?  @db.DateTime(0)
-  user       user       @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "like_res_ibfk_1")
-  restaurant restaurant @relation(fields: [res_id], references: [res_id], onDelete: NoAction, onUpdate: NoAction, map: "like_res_ibfk_2")
+model picture {
+  picture_id   Int        @id @default(autoincrement())
+  picture_name String?    @db.VarChar(255)
+  source       String?    @db.VarChar(255)
+  desc         String?    @db.VarChar(255)
+  user_id      Int
+  bookmark     bookmark[]
+  comment      comment[]
+  user         user       @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "picture_ibfk_1")
 
-  @@id([user_id, res_id])
-  @@index([res_id], map: "res_id")
-}
-
-model order {
-  user_id    Int
-  food_id    Int
-  amount     Int?
-  code       String? @db.VarChar(255)
-  arr_sub_id String? @db.VarChar(255)
-  user       user    @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "order_ibfk_1")
-  food       food    @relation(fields: [food_id], references: [food_id], onDelete: NoAction, onUpdate: NoAction, map: "order_ibfk_2")
-
-  @@id([user_id, food_id])
-  @@index([food_id], map: "food_id")
-}
-
-model rate_res {
-  user_id    Int
-  res_id     Int
-  amount     Int?
-  date_rate  DateTime?  @db.DateTime(0)
-  user       user       @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "rate_res_ibfk_1")
-  restaurant restaurant @relation(fields: [res_id], references: [res_id], onDelete: NoAction, onUpdate: NoAction, map: "rate_res_ibfk_2")
-
-  @@id([user_id, res_id])
-  @@index([res_id], map: "res_id")
-}
-
-model restaurant {
-  res_id   Int        @id @default(autoincrement())
-  res_name String?    @db.VarChar(255)
-  image    String?    @db.VarChar(255)
-  desc     String?    @db.VarChar(255)
-  like_res like_res[]
-  rate_res rate_res[]
-}
-
-model sub_food {
-  sub_id    Int     @id @default(autoincrement())
-  sub_name  String? @db.VarChar(255)
-  sub_price Int?
-  food_id   Int?
-  food      food?   @relation(fields: [food_id], references: [food_id], onDelete: NoAction, onUpdate: NoAction, map: "sub_food_ibfk_1")
-
-  @@index([food_id], map: "food_id")
+  @@index([user_id], map: "user_id")
 }
