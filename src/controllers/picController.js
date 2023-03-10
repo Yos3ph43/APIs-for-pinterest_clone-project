@@ -1,25 +1,39 @@
 const { PrismaClient } = require("@prisma/client");
 const model = new PrismaClient();
 
-const getPic = async (req, res) => {
+//GET danh sách ảnh đã tạo theo user id
+const getPicByUserId = async (req, res) => {
   try {
-    let { picture_id } = req.params;
     let data = await model.picture.findMany({
       where: {
-        picture_id: Number(picture_id),
+        user_id: Number(req.params.user_id),
       },
       include: {
         user: true,
       },
     });
-    res.send(data);
+    res.send({ message: "Danh sách ảnh đã tạo theo user id:", data });
   } catch (error) {
-    console.log(error);
-    // res.send(error.message);
-    res.send(error);
+    res.send(error.message);
   }
 };
 
+//DELETE ảnh đã tạo theo picture_id
+const deletePicByPictureId = async (req, res) => {
+  try {
+    let data = await model.picture.delete({
+      where: {
+        picture_id: Number(req.params.picture_id),
+      },
+    });
+    res.send({ message: "Xóa ảnh thành công!", data });
+  } catch (error) {
+    res.send(error.message);
+  }
+};
+
+
 module.exports = {
-  getPic,
+  getPicByUserId,
+  deletePicByPictureId,
 };
