@@ -11,16 +11,29 @@ const getUser = async (req, res) => {
 };
 
 //PUT thông tin cá nhân của user
+const multer = require("multer")
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, process.cwd() + "/public/imgAvatar");
+  },
+  filename: (req, file, cb) => {
+    const newFileName = Date.now() + "-" + file.originalname
+    cb(null, newFileName);
+  },
+});
+const uploadAvatar = multer({ storage })
+
 const updateUser = async (req, res) => {
   try {
-    let { email, password, full_name, age, avatar } = req.body;
+    let avatar = req.file.filename;
+    let age = Number(req.body.age);
+    let { email, password, full_name } = req.body;
     let data = { email, password, full_name, age, avatar };
     await model.user.update({
       data, where: { user_id: Number(req.params.user_id) }
     });
     res.send({ message: "Update thành công!", data });
   } catch (error) {
-    console.log(error);
     res.send(error.message);
   }
 };
@@ -28,4 +41,5 @@ const updateUser = async (req, res) => {
 module.exports = {
   getUser,
   updateUser,
+  uploadAvatar,
 };
