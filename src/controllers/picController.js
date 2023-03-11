@@ -28,9 +28,21 @@ const getSavePic = async (req, res) => {
         picture_id: Number(picture_id),
       },
     });
-    if ((data = [])) {
-      return res.status(200).send(data);
-    }
+
+    res.status(200).send(data);
+  } catch (error) {
+    res.status(400).send(error.message);
+  }
+};
+const getPicComment = async (req, res) => {
+  try {
+    let { picture_id } = req.params;
+    let data = await model.comment.findMany({
+      where: {
+        picture_id: Number(picture_id),
+      },
+    });
+
     res.status(200).send(data);
   } catch (error) {
     res.status(400).send(error.message);
@@ -38,15 +50,10 @@ const getSavePic = async (req, res) => {
 };
 const addComment = async (req, res) => {
   try {
-    let { user_id, picture_id } = req.body;
-    let data = await model.picture.create({
-      where: {
-        picture_id: Number(picture_id),
-      },
-    });
-    if ((data = [])) {
-      return res.status(200).send(data);
-    }
+    let { user_id, picture_id, content } = req.body;
+    let comment_date = new Date();
+    let data = { user_id, picture_id, content, comment_date };
+    await model.comment.create({ data });
     res.status(200).send(data);
   } catch (error) {
     res.status(400).send(error.message);
@@ -57,4 +64,5 @@ module.exports = {
   getPic,
   getSavePic,
   addComment,
+  getPicComment,
 };
