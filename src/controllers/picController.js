@@ -1,7 +1,8 @@
 const { PrismaClient } = require("@prisma/client");
 const model = new PrismaClient();
+const { checkToken } = require("./authController");
 
-const getPic = async (req, res) => {
+const getPicById = async (req, res) => {
   try {
     let { picture_id } = req.params;
     let data = await model.picture.findMany({
@@ -16,6 +17,31 @@ const getPic = async (req, res) => {
   } catch (error) {
     console.log(error);
     // res.send(error.message);
+    res.status(400).send(error);
+  }
+};
+const getAllPic = async (req, res) => {
+  try {
+    let data = await model.picture.findMany({});
+    res.status(200).send(data);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+};
+const getPicByName = async (req, res) => {
+  try {
+    let { pic_name } = req.params;
+    let data = await model.picture.findMany({
+      where: {
+        picture_name: {
+          contains: pic_name,
+        },
+      },
+    });
+    res.status(200).send(data);
+  } catch (error) {
+    console.log(error);
     res.status(400).send(error);
   }
 };
@@ -61,8 +87,10 @@ const addComment = async (req, res) => {
 };
 
 module.exports = {
-  getPic,
+  getPicById,
   getSavePic,
   addComment,
   getPicComment,
+  getPicByName,
+  getAllPic,
 };

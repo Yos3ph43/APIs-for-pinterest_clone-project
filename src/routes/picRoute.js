@@ -1,15 +1,20 @@
 const express = require("express");
+const { checkToken } = require("../controllers/authController");
 const {
-  getPic,
+  getPicById,
   getSavePic,
   addComment,
   getPicComment,
+  getPicByName,
+  getAllPic,
 } = require("../controllers/picController");
 const picRoute = express();
 
-picRoute.get("/getPic/:picture_id", getPic);
-picRoute.get("/getSavePic/:picture_id", getSavePic);
-picRoute.get("/getPicComment/:picture_id", getPicComment);
-picRoute.post("/addComment", addComment);
+picRoute.get("/getAllPic", checkToken, getAllPic);
+picRoute.get("/getPicById/:picture_id", checkToken, getPicById);
+picRoute.get("/getPicByName/:pic_name", checkToken, getPicByName);
+picRoute.get("/getSavePic/:picture_id", checkToken, getSavePic);
+picRoute.get("/getPicComment/:picture_id", checkToken, getPicComment);
+picRoute.post("/addComment", checkToken, addComment);
 
 module.exports = picRoute;
