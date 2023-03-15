@@ -1,6 +1,5 @@
 const { PrismaClient } = require("@prisma/client");
 const model = new PrismaClient();
-const { checkToken } = require("./authController");
 
 const getPicById = async (req, res) => {
   try {
