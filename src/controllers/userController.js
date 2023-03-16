@@ -91,19 +91,6 @@ const updateUser = async (req, res) => {
   }
 };
 
-//PUT thông tin cá nhân của user
-// const multer = require("multer");
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, process.cwd() + "/public/imgAvatar");
-//   },
-//   filename: (req, file, cb) => {
-//     const newFileName = Date.now() + "-" + file.originalname;
-//     cb(null, newFileName);
-//   },
-// });
-// const uploadAvatar = multer({ storage });
-
 module.exports = {
   getUser,
   signUp,

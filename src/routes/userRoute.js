@@ -1,12 +1,10 @@
 const express = require("express");
 const userRoute = express();
-const { checkToken, checkTokenInBody } = require("../controllers/authController");
+const {
+  checkToken,
+  checkTokenInBody,
+} = require("../controllers/authController");
 const { upload } = require("../controllers/uploadController");
-// const {
-//   getUser,
-//   updateUser,
-//   uploadAvatar,
-// } = require("../controllers/userController");
 const {
   getUser,
   signUp,
@@ -25,6 +23,11 @@ userRoute.post(
   upload.single("data"),
   uploadAvatar
 );
-userRoute.put("/updateUser/:user_id", upload.single("data"), checkTokenInBody, updateUser);
+userRoute.put(
+  "/updateUser/:user_id",
+  upload.single("data"),
+  checkTokenInBody,
+  updateUser
+);
 
 module.exports = userRoute;

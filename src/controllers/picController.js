@@ -111,18 +111,6 @@ const deletePicByPictureId = async (req, res) => {
     res.send(error.message);
   }
 };
-//POST thêm một ảnh theo user
-// const multer = require("multer");
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, process.cwd() + "/public/imgPic");
-//   },
-//   filename: (req, file, cb) => {
-//     const newFileName = Date.now() + "-" + file.originalname;
-//     cb(null, newFileName);
-//   },
-// });
-// const uploadPic = multer({ storage });
 
 const createPic = async (req, res) => {
   try {
@@ -148,8 +136,6 @@ module.exports = {
   getPicByUserId,
   deletePicByPictureId,
   createPic,
-  // uploadPicByName,
   getAllPic,
   getPicByName,
-  // uploadPic,
 };
