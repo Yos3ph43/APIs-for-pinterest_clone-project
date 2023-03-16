@@ -77,7 +77,7 @@ const uploadAvatar = async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
-    let avatar = req.file.filename;
+    let avatar = `http://localhost:8080/public/img/${req.file.filename}`;
     let age = Number(req.body.age);
     let { email, password, full_name } = req.body;
     let data = { email, password, full_name, age, avatar };
