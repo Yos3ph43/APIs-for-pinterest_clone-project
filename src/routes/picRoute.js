@@ -16,11 +16,11 @@ const {
   getPicByName,
   getAllPic,
 } = require("../controllers/picController");
-const { checkToken } = require("../controllers/authController");
+const { checkToken, checkTokenInBody } = require("../controllers/authController");
 
 picRoute.get("/getPicByUserId/:user_id", getPicByUserId);
 picRoute.delete("/deletePicByPictureId/:picture_id", deletePicByPictureId);
-picRoute.post("/createPic/:user_id", upload.single("data"), createPic);
+picRoute.post("/createPic/:user_id", upload.single("data"), checkTokenInBody, createPic);
 picRoute.get("/getAllPic", checkToken, getAllPic);
 picRoute.get("/getPicById/:picture_id", checkToken, getPicById);
 picRoute.get("/getPicByName/:pic_name", checkToken, getPicByName);

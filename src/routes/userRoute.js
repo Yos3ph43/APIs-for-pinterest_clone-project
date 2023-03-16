@@ -1,6 +1,6 @@
 const express = require("express");
 const userRoute = express();
-const { checkToken } = require("../controllers/authController");
+const { checkToken, checkTokenInBody } = require("../controllers/authController");
 const { upload } = require("../controllers/uploadController");
 // const {
 //   getUser,
@@ -25,6 +25,6 @@ userRoute.post(
   upload.single("data"),
   uploadAvatar
 );
-userRoute.put("/updateUser/:user_id", upload.single("data"), updateUser);
+userRoute.put("/updateUser/:user_id", upload.single("data"), checkTokenInBody, updateUser);
 
 module.exports = userRoute;

@@ -129,7 +129,7 @@ const createPic = async (req, res) => {
     const file = req.file;
     const user_id = Number(req.params.user_id);
     const picture_name = file.filename;
-    const source = `http://localhost:8080/public/imgPic/${file.filename}`;
+    const source = `http://localhost:8080/public/img/${file.filename}`;
     const desc = "Desc of " + file.filename + "...";
     const data = { user_id, picture_name, source, desc };
     await model.picture.create({ data });

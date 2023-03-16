@@ -1,0 +1,254 @@
+{
+	"info": {
+		"_postman_id": "f7527ef4-59d5-4aed-9705-1b09e80b41cc",
+		"name": "Api Pinterest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23671382"
+	},
+	"item": [
+		{
+			"name": "GET danh sách ảnh đã lưu theo user id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjUsImVtYWlsIjoiaGFpbmd1eWVubGVob2FuZzg3QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiaGlkZGVuIiwiZnVsbF9uYW1lIjoiaOG6o2kiLCJhZ2UiOjM4LCJhdmF0YXIiOiIifSwiaWF0IjoxNjc4OTYwMjY0LCJleHAiOjE2Nzg5NjA4NjR9.g50-0F6J188kcPmctrcFBI9_6iPrWnpux0taLBfkeaA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/bookmark/getBookmarkByUserId/3",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"bookmark",
+						"getBookmarkByUserId",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET danh sách ảnh đã tạo theo user id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjUsImVtYWlsIjoiaGFpbmd1eWVubGVob2FuZzg3QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiaGlkZGVuIiwiZnVsbF9uYW1lIjoiaOG6o2kiLCJhZ2UiOjM4LCJhdmF0YXIiOiIifSwiaWF0IjoxNjc4OTYwMjY0LCJleHAiOjE2Nzg5NjA4NjR9.g50-0F6J188kcPmctrcFBI9_6iPrWnpux0taLBfkeaA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/pic/getPicByUserId/1",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"pic",
+						"getPicByUserId",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE xóa ảnh đã tạo theo id ảnh",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjUsImVtYWlsIjoiaGFpbmd1eWVubGVob2FuZzg3QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiaGlkZGVuIiwiZnVsbF9uYW1lIjoiaOG6o2kiLCJhZ2UiOjM4LCJhdmF0YXIiOiIifSwiaWF0IjoxNjc4OTYwMjY0LCJleHAiOjE2Nzg5NjA4NjR9.g50-0F6J188kcPmctrcFBI9_6iPrWnpux0taLBfkeaA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domain}}/pic/deletePicByPictureId/6",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"pic",
+						"deletePicByPictureId",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT thông tin cá nhân của user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "data",
+							"type": "file",
+							"src": "/C:/Users/haiho-tckt/Desktop/pic.jpg"
+						},
+						{
+							"key": "email",
+							"value": "hainguyenlehoang86@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1111",
+							"type": "text"
+						},
+						{
+							"key": "full_name",
+							"value": "Nguyễn Lê Hoàng Hải",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "38",
+							"type": "text"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjUsImVtYWlsIjoiaGFpbmd1eWVubGVob2FuZzg3QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiaGlkZGVuIiwiZnVsbF9uYW1lIjoiaOG6o2kiLCJhZ2UiOjM4LCJhdmF0YXIiOiIifSwiaWF0IjoxNjc4OTYyOTAwLCJleHAiOjE2Nzg5NjM1MDB9.hUf2C8K4iHhESlifRiEan_vkAz5V2tvk-fNBPmjMXzI",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/user/updateUser/4",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"user",
+						"updateUser",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST thêm một ảnh theo user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "data",
+							"type": "file",
+							"src": "/C:/Users/haiho-tckt/Desktop/pic.jpg"
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjUsImVtYWlsIjoiaGFpbmd1eWVubGVob2FuZzg3QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiaGlkZGVuIiwiZnVsbF9uYW1lIjoiaOG6o2kiLCJhZ2UiOjM4LCJhdmF0YXIiOiIifSwiaWF0IjoxNjc4OTYyOTAwLCJleHAiOjE2Nzg5NjM1MDB9.hUf2C8K4iHhESlifRiEan_vkAz5V2tvk-fNBPmjMXzI",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{domain}}/pic/createPic/1",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"pic",
+						"createPic",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"hainguyenlehoang87@gmail.com\",\r\n    \"password\": \"1111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/user/login",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test sign up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"hainguyenlehoang87@gmail.com\",\r\n    \"password\": \"1111\",\r\n    \"full_name\": \"hải\",\r\n    \"age\": 38,\r\n    \"avatar\": \"avatar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domain}}/user/signup",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		}
+	]
+}

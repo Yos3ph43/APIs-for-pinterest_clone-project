@@ -10,6 +10,17 @@ const checkToken = (req, res, next) => {
   }
 };
 
+const checkTokenInBody = (req, res, next) => {
+  try {
+    let { token } = req.body;
+    if (!verifyToken(token)) return res.send("Unauthorized");
+    return next();
+  } catch (error) {
+    res.status(401).send(error);
+  }
+};
+
 module.exports = {
   checkToken,
+  checkTokenInBody
 };
