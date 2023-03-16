@@ -112,6 +112,7 @@ const deletePicByPictureId = async (req, res) => {
   }
 };
 
+//POST thêm một ảnh theo user
 const createPic = async (req, res) => {
   try {
     const file = req.file;
@@ -121,10 +122,9 @@ const createPic = async (req, res) => {
     const desc = "Desc of " + file.filename + "...";
     const data = { user_id, picture_name, source, desc };
     await model.picture.create({ data });
-    // res.send(file)
     res.send({ message: "Thêm ảnh thành công!", data });
   } catch (error) {
-    request.send(error.message);
+    res.send(error.message);
   }
 };
 

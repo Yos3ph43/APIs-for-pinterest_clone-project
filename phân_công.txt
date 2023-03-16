@@ -1,0 +1,21 @@
+Đặng Nguyễn Minh Luân:  
+        + Tạo database + setup structure
+        + POST đăng ký (signUp)
+        + POST đăng nhập (login)
+        + POST upload avatar (uploadAvatar)
+        + GET danh sách ảnh (getAllPic)
+        + GET tìm kiếm danh sách ảnh theo tên (getPicByName)
+
+Lương Sỹ Bảo:
+        + GET thông tin ảnh và người tạo ảnh bằng id ảnh (getPicById)
+        + GET thông tin bình luận theo id ảnh (getPicComment)
+        + GET thông tin đã lưu hình này chưa theo id ảnh (getSavePic)
+        + POST để lưu thông tin bình luận của người dùng với hình ảnh (addComment)
+        + GET thông tin user (getUser)
+
+Hoàng Hải:              
+        + GET danh sách ảnh đã lưu theo user id (getBookmarkByUserId)
+        + GET danh sách ảnh đã tạo theo user id (getPicByUserId)
+        + DELETE xóa ảnh đã tạo theo id ảnh (deletePicByPictureId)
+        + POST thêm một ảnh của user (createPic)
+        + PUT update thông tin cá nhân của user (updateUser)

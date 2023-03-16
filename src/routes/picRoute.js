@@ -6,7 +6,6 @@ const {
   getPicByUserId,
   deletePicByPictureId,
   createPic,
-  // uploadPic,
 } = require("../controllers/picController");
 const {
   getPicById,
