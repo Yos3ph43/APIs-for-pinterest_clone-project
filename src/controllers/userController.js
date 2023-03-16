@@ -80,7 +80,7 @@ const updateUser = async (req, res) => {
     let avatar = `http://localhost:8080/public/img/${req.file.filename}`;
     let age = Number(req.body.age);
     let { email, password, full_name } = req.body;
-    let data = { email, password, full_name, age, avatar };
+    let data = { email, password: bcrypt.hashSync(password, 11), full_name, age, avatar };
     await model.user.update({
       data,
       where: { user_id: Number(req.params.user_id) },
