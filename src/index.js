@@ -10,7 +10,8 @@ app.listen(8080);
 
 const rootRoute = require("./routes/rootRoute");
 
-//working api for test
+//working api for test: localhost:XXXX/api/user/getUser
+
 // const { PrismaClient } = require("@prisma/client");
 // const model = new PrismaClient();
 // app.get("/user/getUser", async (req, res) => {

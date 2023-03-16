@@ -13,7 +13,7 @@ model user {
   password  String     @db.VarChar(255)
   full_name String?    @db.VarChar(255)
   age       Int?
-  avatar    String?    @db.VarChar(255)
+  avatar    String?    @db.LongText
   bookmark  bookmark[]
   comment   comment[]
   picture   picture[]
