@@ -20,8 +20,8 @@ const {
   checkTokenInBody,
 } = require("../controllers/authController");
 
-picRoute.get("/getPicByUserId/:user_id", getPicByUserId);
-picRoute.delete("/deletePicByPictureId/:picture_id", deletePicByPictureId);
+picRoute.get("/getPicByUserId/:user_id", checkToken, getPicByUserId);
+picRoute.delete("/deletePicByPictureId/:picture_id", checkToken, deletePicByPictureId);
 picRoute.post(
   "/createPic/:user_id",
   upload.single("data"),
