@@ -99,17 +99,22 @@ const getPicByUserId = async (req, res) => {
     res.send(error.message);
   }
 };
+
 //DELETE ảnh đã tạo theo picture_id
 const deletePicByPictureId = async (req, res) => {
   try {
-    let data = await model.picture.delete({
-      where: {
-        picture_id: Number(req.params.picture_id),
-      },
-    });
+    const picture_id = Number(req.params.picture_id);
+    const data = await model.picture.findUnique({ where: { picture_id }});
+    if (!data) {
+      return res.status(404).send({ message: "Không tìm thấy ảnh!" });
+    }
+    await model.bookmark.deleteMany({ where: { picture_id }});
+    await model.comment.deleteMany({ where: { picture_id }});
+    await model.picture.delete({ where: { picture_id }});
     res.send({ message: "Xóa ảnh thành công!", data });
   } catch (error) {
-    res.send(error.message);
+    console.error(error);
+    res.status(500).send({ message: "Đã xảy ra lỗi khi xóa ảnh!" });
   }
 };
 
