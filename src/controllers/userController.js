@@ -91,7 +91,7 @@ const updateUser = async (req, res) => {
       password: bcrypt.hashSync(password, 11),
       full_name,
       age,
-      // avatar,
+      avatar,
     };
     await model.user.update({
       data,
