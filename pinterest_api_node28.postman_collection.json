@@ -1,9 +1,8 @@
 {
 	"info": {
-		"_postman_id": "6540e2d5-1107-4a39-8d00-7608299cfb68",
+		"_postman_id": "4f9d333d-6cfe-449e-8d30-75438ea13e09",
 		"name": "pinterest_api_node28",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "23671391"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -184,13 +183,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/user/login",
+					"raw": "{{domain}}/user/login",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "8080",
 					"path": [
-						"api",
 						"user",
 						"login"
 					]
@@ -213,13 +210,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/user/signup",
+					"raw": "{{domain}}/user/signup",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "8080",
 					"path": [
-						"api",
 						"user",
 						"signup"
 					]
@@ -243,13 +238,11 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:8080/api/user/uploadAvatar/1",
+					"raw": "{{domain}}/user/uploadAvatar/1",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "8080",
 					"path": [
-						"api",
 						"user",
 						"uploadAvatar",
 						"1"
@@ -276,13 +269,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/pic/getPicByName/:pic_name",
+					"raw": "{{domain}}/pic/getPicByName/:pic_name",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "8080",
 					"path": [
-						"api",
 						"pic",
 						"getPicByName",
 						":pic_name"
@@ -315,13 +306,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/api/pic/getPicByName/:pic_name",
+					"raw": "{{domain}}/pic/getPicByName/:pic_name",
 					"host": [
-						"localhost"
+						"{{domain}}"
 					],
-					"port": "8080",
 					"path": [
-						"api",
 						"pic",
 						"getPicByName",
 						":pic_name"
@@ -342,12 +331,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{domain}}/api/user/getUser",
+					"raw": "{{domain}}/user/getUser",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
-						"api",
 						"user",
 						"getUser"
 					]
@@ -361,12 +349,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{domain}}/api/pic/getPicById/1",
+					"raw": "{{domain}}/pic/getPicById/1",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
-						"api",
 						"pic",
 						"getPicById",
 						"1"
@@ -381,12 +368,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{domain}}/api/pic/getSavePic/2",
+					"raw": "{{domain}}/pic/getSavePic/2",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
-						"api",
 						"pic",
 						"getSavePic",
 						"2"
@@ -401,12 +387,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{domain}}/api/pic/getPicComment/4",
+					"raw": "{{domain}}/pic/getPicComment/4",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
-						"api",
 						"pic",
 						"getPicComment",
 						"4"
@@ -430,12 +415,11 @@
 					}
 				},
 				"url": {
-					"raw": "{{domain}}/api/pic/addComment",
+					"raw": "{{domain}}/pic/addComment",
 					"host": [
 						"{{domain}}"
 					],
 					"path": [
-						"api",
 						"pic",
 						"addComment"
 					]
