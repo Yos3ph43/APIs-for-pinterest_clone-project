@@ -190,6 +190,13 @@
 					"path": [
 						"user",
 						"login"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
 					]
 				}
 			},
@@ -329,7 +336,13 @@
 			"name": "thông tin user - Sy Bao",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjQsImVtYWlsIjoibHVhbjA0MDM5OUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IioqKioqKioqKioiLCJmdWxsX25hbWUiOiJuYW1lZWVyZWUiLCJhZ2UiOjk5LCJhdmF0YXIiOm51bGx9LCJpYXQiOjE2NzkwMjY3NDgsImV4cCI6MTY3OTAyNzM0OH0.0AZP18YovVyLc82iRmrcKNDJASUDIUm35em5C9o4-po",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "{{domain}}/user/getUser",
 					"host": [
@@ -347,7 +360,13 @@
 			"name": "thông tin ảnh & người tạo (picture_id)  - Sy Bao",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjQsImVtYWlsIjoibHVhbjA0MDM5OUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IioqKioqKioqKioiLCJmdWxsX25hbWUiOiJuYW1lZWVyZWUiLCJhZ2UiOjk5LCJhdmF0YXIiOm51bGx9LCJpYXQiOjE2NzkwMjY3NDgsImV4cCI6MTY3OTAyNzM0OH0.0AZP18YovVyLc82iRmrcKNDJASUDIUm35em5C9o4-po",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "{{domain}}/pic/getPicById/1",
 					"host": [
@@ -366,7 +385,13 @@
 			"name": "thông tin đã lưu hình hay chưa(picture_id)  - Sy Bao",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjQsImVtYWlsIjoibHVhbjA0MDM5OUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IioqKioqKioqKioiLCJmdWxsX25hbWUiOiJuYW1lZWVyZWUiLCJhZ2UiOjk5LCJhdmF0YXIiOm51bGx9LCJpYXQiOjE2NzkwMjY3NDgsImV4cCI6MTY3OTAyNzM0OH0.0AZP18YovVyLc82iRmrcKNDJASUDIUm35em5C9o4-po",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "{{domain}}/pic/getSavePic/2",
 					"host": [
@@ -385,7 +410,13 @@
 			"name": "thông tin comment (picture_id)  - Sy Bao",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjQsImVtYWlsIjoibHVhbjA0MDM5OUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IioqKioqKioqKioiLCJmdWxsX25hbWUiOiJuYW1lZWVyZWUiLCJhZ2UiOjk5LCJhdmF0YXIiOm51bGx9LCJpYXQiOjE2NzkwMjY3NDgsImV4cCI6MTY3OTAyNzM0OH0.0AZP18YovVyLc82iRmrcKNDJASUDIUm35em5C9o4-po",
+						"type": "default"
+					}
+				],
 				"url": {
 					"raw": "{{domain}}/pic/getPicComment/4",
 					"host": [
@@ -404,7 +435,13 @@
 			"name": "thêm comment(picture_id)  - Sy Bao",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJfaWQiOjQsImVtYWlsIjoibHVhbjA0MDM5OUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IioqKioqKioqKioiLCJmdWxsX25hbWUiOiJuYW1lZWVyZWUiLCJhZ2UiOjk5LCJhdmF0YXIiOm51bGx9LCJpYXQiOjE2NzkwMjY3NDgsImV4cCI6MTY3OTAyNzM0OH0.0AZP18YovVyLc82iRmrcKNDJASUDIUm35em5C9o4-po",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"user_id\": 1,\r\n    \"picture_id\": 1,\r\n    \"content\": \"luôn vui tươi\"\r\n}",

@@ -3,9 +3,10 @@ const model = new PrismaClient();
 
 const getPicById = async (req, res) => {
   try {
+    let { picture_id } = req.params;
     let data = await model.picture.findMany({
       where: {
-        user_id: Number(req.params.user_id),
+        picture_id: Number(picture_id),
       },
       include: {
         user: true,
@@ -13,7 +14,7 @@ const getPicById = async (req, res) => {
     });
     res.status(200).send(data);
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).send(error.message);
   }
 };
 const getAllPic = async (req, res) => {
