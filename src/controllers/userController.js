@@ -97,7 +97,7 @@ const updateUser = async (req, res) => {
       data,
       where: { user_id: Number(req.params.user_id) },
     });
-    res.send({ message: "Update thành công!", data });
+    res.send({ message: "Update thành công!", ...data, password: "" });
   } catch (error) {
     res.status(400).send(error.message);
   }
